@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Training</title>
+    </head>
+    <body>
+        <p id="demo">Some Text</p>
+        <button onclick=" document.getElementById('demo').innerHTML = 'Text Changed' ">Change text</button>
+        <button onclick="window.print()">Print</button><br>
+        <script>var x = 16 + 4 + "Volvo";document.write(x)</script><br>
+        <script>var x = "Volvo" + 16 + 4;document.write(x)</script><br>
+        <script>document.write(this)</script><br>
+        <script>
+            "use strict";
+            var x; // error if commented due to use strict
+            x = {p1:10, p2:20};   
+        </script>
+        <script>
+            "use strict";
+            var obj = {};
+            Object.defineProperty(obj, "x", {value:45, writable:false});
+
+            //obj.x = 3.14; // error not writable
+            document.write(obj.x)
+        </script>
+        <script>
+            "use strict";
+            var obj = {get x() {return x} };
+
+            //obj.x = 3.14; // error
+            document.write(obj.x);
+        </script>
+        <script>
+            var person = {
+                firstName: "John",
+                lastName : "Doe",
+                id       : 5566,
+                fullName : function() {
+                    return this.firstName + " " + this.lastName;
+                },
+                myFunction : function(){
+                    return this;
+                }
+            };
+            document.write(person.fullName())
+            document.write(person.myFunction()+"<br>")
+        </script>
+
+        <script>
+            function Person(first, last, age, eye) {
+                this.firstName = first;
+                this.lastName = last;
+                this.age = age;
+                this.eyeColor = eye;
+            }
+        </script>
+        <script>
+            var w = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth;
+            
+            var h = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
+            
+            document.write("Browser inner window width: " + w + ", height: " + h + "." + "<br>");
+        </script>
+        <script>
+            document.write("Page location is " + window.location.href + "<br>");
+            document.write("Page hostname is " + window.location.hostname + "<br>");
+            document.write("Port number is " + window.location.port + "<br>");
+        </script>
+
+        <button onclick="this.style.display='none'">
+            Click!
+        </button>
+        <script>
+            var person1 = {
+                fullName: function() {
+                    return this.firstName + " " + this.lastName;
+                }
+            }
+            var person2 = {
+                firstName:"John",
+                lastName: "Doe",
+            }
+            var x = person1.fullName.call(person2);
+            document.write(x+"<br>");
+        </script>
+        <script>
+            var x = 10;
+            document.write("x initial value: " + x + "<br>");
+            {
+            let x = 2;
+            document.write("x block value: " + x + "<br>");
+            }
+            document.write("x after block value: " + x + "<br>");
+        </script>
+        <script>
+            const car = {type:"Fiat", model:"500", color:"white"};
+
+            //change a property:
+            car.color = "red";
+
+            //add a property:
+            car.owner = "Johnson";
+            
+            //cannot change reference
+            car = {type:"Volvo", model:"EX60", color:"red"};    // ERROR
+        </script>
+        <script>
+            hello = () => {
+               return "Hello World!";
+            }
+            document.write(hello());
+            hello = (val) => "Hello " + val;
+
+            document.write(hello("g!"));
+        </script>
+        <script>
+            function validateForm() {
+                var x = document.forms["myForm"]["fname"].value;
+                if (x == "") {
+                    alert("Name must be filled out");
+                    return false;
+                }
+            }
+            var cars = ['BMW', 'Volvo', 'Mini'];
+            var x;
+
+            for (x of cars) {
+            document.write(x + "<br >");
+            }
+        </script>
+        <script>
+            var i;
+            for (i = 0; i < cars.length; i++) {
+            text += cars[i] + "<br>";
+            }
+        </script>
+        <form name="myForm" action="#" onsubmit="return validateForm()" method="post">
+            Name: <input type="text" name="fname">
+            <input type="submit" value="Submit">
+        </form>
+        <script>
+            var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"}
+            
+            var x = person;
+            x.age = 10;
+            
+            document.write(person.firstName + " is " + person.age + " years old.");
+        </script>
+
+        <!--_______________________________________________________-->
+        <script>
+            var x = document.getElementsByTagName("p");
+            document.write('The text in first paragraph (index 0) is: ' + x[0].innerHTML);
+            //var x = document.getElementsByClassName("intro");
+            //var x = document.querySelectorAll("p.intro");
+        </script>
+        <form id="frm1" action="/action_page.php">
+            First name: <input type="text" name="fname" value="Donald"><br>
+            Last name: <input type="text" name="lname" value="Duck"><br><br>
+            <input type="submit" value="Submit">
+        </form> 
+          
+        <button onclick="myFunction()">Try it</button>
+          
+        <p id="demo"></p>
+          
+        <script>
+            function myFunction() {
+                var x = document.forms["frm1"];
+                var text = "";
+                var i;
+                for (i = 0; i < x.length ;i++) {
+                    text += x.elements[i].value + "<br>";
+                }
+                document.write(text);
+            }
+        </script>
+        <img id="myImage" src="#">
+        <script>
+            document.getElementById("myImage").src = "img_food.jpg";
+        </script>
+        <p id="p2">Hello World!</p>
+
+        <script>
+            document.getElementById("p2").style.color = "blue";
+        </script>
+    </body>
+</html>
